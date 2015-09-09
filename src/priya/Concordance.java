@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class Concordance {
 
     public static void main(String args[]) {
+        findIndex("h");
     }
 
     public static HashMap<String, ArrayList<Integer>> findIndex(String input) {
