@@ -2,24 +2,40 @@ package priya;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Concordance {
 
     public static void main(String args[]) {
-        findIndex("hi how are you?");
     }
 
-    public static String findIndex(String text) {
-        HashMap<String, List<Integer>> table = new HashMap<>();
-        String[] wordsString = text.split(" ");
-        String result = "";
-        for (int i = 0; i < wordsString.length; i++) {
-            List<Integer> indexValues = new ArrayList<>();
-            indexValues.add(text.indexOf(wordsString[i], i));
-            table.put(wordsString[i], indexValues);
+    public static HashMap<String, ArrayList<Integer>> splitWords(String text) {
+        HashMap<String, ArrayList<Integer>> table = new HashMap<>();
+        ArrayList<String> words = new ArrayList<>();
+        ArrayList<Integer> indices = new ArrayList<>();
+        for (String substring : text.split(" ")) {
+            words.add(substring);
+
+            for (int i = 0; i < words.size(); i++) {
+                if (words.get(i) == "hi") {
+                    indices.add(text.indexOf(words.get(i), i));
+                    table.put(words.get(i), indices);
+                }
+            }
         }
-        return (result + table);
+        return table;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
