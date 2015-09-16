@@ -19,14 +19,27 @@ public class ConcordanceTest {
     }
 
     @Test
-    public void countsWordTwice() {
+    public void countsDifferentWords() {
         HashMap<String, ArrayList<Integer>> result = new HashMap<>();
         ArrayList<Integer> index = new ArrayList<>();
+        ArrayList<Integer> nextIndex = new ArrayList<>();
         index.add(0);
-        index.add(3);
-        result.put("hi",index);
-        Assert.assertEquals(result, Concordance.splitWords("hi hi"));
+        nextIndex.add(3);
+        result.put("hi", index);
+        result.put("there", nextIndex);
+        Assert.assertEquals(result, Concordance.splitWords("hi there"));
     }
+
+    @Test
+    public void countsWordTwice() {
+        // HashMap<String, ArrayList<Integer>> result = new HashMap<>();
+        // ArrayList<Integer> index = new ArrayList<>();
+        // index.add(0);
+        // index.add(3);
+        // result.put("hi",index);
+        // Assert.assertEquals(result, Concordance.splitWords("hi hi"));
+    }
+
 
     @Test
     public void countsOccurrencesOfHow() {
