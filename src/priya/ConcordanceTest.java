@@ -1,5 +1,6 @@
 package priya;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -19,7 +20,12 @@ public class ConcordanceTest {
 
     @Test
     public void countsWordTwice() {
-        //Assert.assertEquals("{hi=[0,3]", Concordance.splitWords("hi hi"));
+        HashMap<String, ArrayList<Integer>> result = new HashMap<>();
+        ArrayList<Integer> index = new ArrayList<>();
+        index.add(0);
+        index.add(3);
+        result.put("hi",index);
+        Assert.assertEquals(result, Concordance.splitWords("hi hi"));
     }
 
     @Test
